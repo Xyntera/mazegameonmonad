@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logos.png">
+    <title>Monad 3D Maze Runner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="intro" id="intro">
+            <h1>Welcome to Monad 3D Maze</h1>
+            <p>Guide the Monad Mascot through the 3D maze to the Monad House!<br>Press any key to start.</p>
+            <button id="start-btn">Start</button>
+        </div>
+        <div class="game-container" id="game-container">
+            <div class="hud">
+                <div class="score">Score: <span id="score-value">0</span></div>
+                <div class="time">Time: <span id="time-value">00:00</span></div>
+            </div>
+            <canvas id="three-canvas"></canvas>
+            <div class="overlay" id="overlay">
+                <div class="message" id="message"></div>
+                <button id="restart-btn">Restart</button>
+            </div>
+        </div>
+    </div>
+    <audio id="clap-sound" src="sounds/clap.mp3" preload="auto" crossorigin="anonymous"></audio>
+    <audio id="step-sound" src="sounds/step.mp3" preload="auto" crossorigin="anonymous"></audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r136/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cannon-es@0.15.1/dist/cannon-es.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
