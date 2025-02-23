@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if Three.js and Cannon.js are loaded
     if (typeof THREE === 'undefined' || typeof CANNON === 'undefined') {
         console.error('Three.js or Cannon.js not loaded. Please check external scripts.');
+        alert('Error: Required 3D libraries are not loading. Ensure you have an internet connection and the scripts are accessible.');
         return;
     }
 
@@ -52,6 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!canvas) {
             console.error('Canvas element not found');
+            alert('Error: Canvas not found. Please check the HTML.');
+            return;
+        }
+
+        // Check WebGL availability
+        if (!THREE.WebGL.isWebGLAvailable()) {
+            game.elements.message.textContent = 'WebGL is not supported in your browser. Please use a modern browser like Chrome, Firefox, or Safari.';
+            game.elements.overlay.classList.add('active');
             return;
         }
 
@@ -230,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update Player Position
     function updatePlayer() {
         const { mascotMesh, mascotBody, camera } = game.state;
+        if (!mascotMesh || !mascotBody || !camera) return;
         mascotMesh.position.copy(mascotBody.position);
         camera.position.set(
             mascotBody.position.x + 1.5,
@@ -243,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update Goal Position
     function updateGoal() {
         const { goal } = game.state;
+        if (!goal) return;
         goal.position.copy(game.state.goalPosition);
     }
 
@@ -262,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!game.state.isPlaying) return;
 
         const { mascotBody } = game.state;
+        if (!mascotBody) return;
         const speed = 0.1;
         const rotationSpeed = 0.05;
 
