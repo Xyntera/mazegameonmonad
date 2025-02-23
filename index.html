@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="Monad Logo - Default - Logo Mark.png">
+    <link rel="icon" href="logos.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/32';"> <!-- Fallback favicon -->
     <title>Monad 3D Maze Runner</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,8 +26,8 @@
             </div>
         </div>
     </div>
-    <audio id="clap-sound" src="sounds/clap.mp3" preload="auto" crossorigin="anonymous"></audio>
-    <audio id="step-sound" src="sounds/step.mp3" preload="auto" crossorigin="anonymous"></audio>
+    <audio id="clap-sound" src="clap.mp3" preload="auto" crossorigin="anonymous" onerror="console.log('Clap sound failed to load'); this.src='https://www.myinstants.com/media/sounds/clap-1.mp3';"></audio>
+    <audio id="step-sound" src="step.mp3" preload="auto" crossorigin="anonymous" onerror="console.log('Step sound failed to load'); this.src='https://www.myinstants.com/media/sounds/footsteps-1.mp3';"></audio>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r136/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cannon-es@0.15.1/dist/cannon-es.min.js"></script>
     <script src="script.js"></script>
